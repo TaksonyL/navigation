@@ -1,0 +1,75 @@
+.dialog-component{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  .dialog-wrap{
+    position: relative;
+    z-index: 10010;
+    width: 300px;
+    background-color: #fff;
+    margin: 20vh auto 0;
+    border-radius: 6px;
+    transform: scale(.8);
+    opacity: 0;
+    transition: all @duration;
+    padding: 0 20px;
+    box-sizing: border-box;
+
+    .dialog-header{
+      line-height: 60px;
+      font-size: 18px;
+      text-align: center;
+      position: relative;
+      .iconfont{
+        position: absolute;
+        right: 0;
+        font-size: 18px;
+        color: @color-black-light;
+        cursor: pointer;
+        &:hover{
+          color: @color-black;
+        }
+      }
+    }
+
+    .dialog-footer{
+      padding: 15px 0;
+      text-align: center;
+      button{
+        &:nth-child(1) {
+          margin-right: 10px;
+        }
+        &:last-child {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+
+  .dialog-mask{
+    position: absolute;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0;
+    transition: all @duration;
+  }
+}
+
+@duration: 300ms;
+.dialog-component-enter,
+.dialog-component-enter-done{
+  .dialog-wrap{
+    transform: scale(1);
+    opacity: 1;
+  }
+  .dialog-mask{
+    opacity: .8;
+  }
+}
